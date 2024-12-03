@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GREEN NYC LANDSCAPES</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #B2A18B;
+      overflow: hidden;
+    }
+
+    .image-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .image-container img {
+      position: absolute;
+      opacity: 0; 
+      transition: opacity 2s ease; 
+      object-fit: contain; 
+    }
+
+    .image-container img.fade-in {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://s3.amazonaws.com/assets.centralparknyc.org/media/images/_1650x990_crop_center-center_none/TheMall-20191106-09297.jpg" alt="Central Park Trees">
+    <img src="https://greenerynyc.com/wp-content/uploads/2021/12/MG_9416-min-2400x1600_c.jpeg" alt="Brooklyn Greenery">
+    <img src="https://images.ctfassets.net/1aemqu6a6t65/30azPEoeGl6IsT2nQYUmCY/65d91f3d8b813f58b07d0de71318dff8/washingtonsquarepark_christopherpostlewaite_7314?w=1200&h=800&q=75" alt="Washington Square Greenery">
+    <img src="https://fhl-website.s3.amazonaws.com/content/uploads/2018/06/25195920/1_gallery_ataglance_3565_iwanbaan.jpg" alt="High Line Park NYC">
+    <img src="https://happier.place/wp-content/uploads/2019/10/Prospect-Park_HappierPlace_11-786x524.jpg?x86270" alt="Prospect Park Pond">
+    <img src="https://www.gardendestinations.com/wp-content/uploads/2019/02/658f22120e0c79dd63037ba213677ba2.jpg" alt="NYC Rooftop Garden">
+    <img src="https://media.wired.com/photos/593234cd2a990b06268a9266/master/pass/floating-city-ft2.jpg" alt="Hudson River Green Docks">
+    <img src="https://img.freepik.com/premium-photo/aerial-view-statue-liberty-liberty-island-with-vibrant-greenery-new-york-city-skyline_254869-4845.jpg" alt="Liberty Island Greenscape">
+    <img src="https://www.thebattery.org/wp-content/uploads/2017/12/woodland_Slide2.jpg" alt="Battery Park Trees">
+    <img src="https://greatperformances.com/wp-content/uploads/2024/04/Riverside-Park-Conservancy_7-Credit-Julienne-Schaer-scaled.webp" alt="Riverside Green Views">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Morgan_Hill_State_Forest.JPG/1200px-Morgan_Hill_State_Forest.JPG" alt="NYC Forest Area">
+    <img src="https://ephemeralnewyork.wordpress.com/wp-content/uploads/2016/11/bellevuegardeneaglesculpture.jpg" alt="FDR Drive Greenery">
+    <img src="https://www.earth.com/assets/_next/image/?url=https%3A%2F%2Fcff2.earth.com%2Fuploads%2F2023%2F01%2F09061533%2FNYC-1400x850.jpg&w=1200&q=75" alt="NYC Cityscape with Greenery">
+    <img src="https://www.nybg.org/content/uploads/2021/06/PeggyRockefellerRoseGardenAerial-MCO-DJI_0567-scaled.jpg" alt="NYC Botanical Garden">
+    <img src="https://images.ctfassets.net/1aemqu6a6t65/1dJV8qWipwPAbjothHmXC1/89d597e07456a3094f1a7f697c122d54/Governors-Island-NYC-Photo-Julienne-Schaer.jpg" alt="Staten Island Green View">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDBY6PakaY5lwfOCYp76z_nZxt0RNfFd9g7Q&s" alt="Queens Garden NYC">
+    <img src="https://www.scapestudio.com/wp-content/uploads/2023/05/The-Launch-School-Overall-Vision-No-Labels_c-SCAPE.jpg" alt="Jamaica Bay Green Landscape">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".image-container img");
+
+      images.forEach((img, index) => {
+        // Set a random opacity between 0.5 and 1.0
+        const randomOpacity = (Math.random() * 0.5 + 0.5).toFixed(2);
+        img.style.opacity = randomOpacity;
+
+        
+        const randomSize = Math.floor(Math.random() * 40) + 30; 
+        if (Math.random() < 0.5) {
+          img.style.width = `${randomSize}vw`;
+          img.style.height = 'auto';
+        } else {
+          img.style.height = `${randomSize}vh`;
+          img.style.width = 'auto';
+        }
+
+        const posX = Math.floor(Math.random() * 80); 
+        const posY = Math.floor(Math.random() * 80); 
+        img.style.left = `${posX}%`;
+        img.style.top = `${posY}%`;
+
+        const zIndex = Math.floor(Math.random() * 10) + 1;
+        img.style.zIndex = zIndex;
+
+        
+        const delay = index * 1000; 
+        setTimeout(() => {
+          img.classList.add("fade-in"); 
+        }, delay);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YELLOW NYC SUNSETS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #FFD966;
+      overflow: hidden;
+    }
+
+    .image-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .image-container img {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 2s ease;
+      object-fit: contain;
+    }
+
+    .image-container img.fade-in {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://live.staticflickr.com/8251/8519063723_e4852d3080_b.jpg" alt="Central Park Sunset">
+    <img src="https://images.squarespace-cdn.com/content/v1/5334d488e4b0943ce18a80cb/1696144796736-ADT1PZUYJMXSH3ARFTGI/DSC04118.jpeg?format=1000w" alt="Brooklyn Bridge Golden Hour">
+    <img src="https://www.travelandleisure.com/thmb/f7QkQ1dDWcphqR2UNHWuY_lWZQM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/manhattanhenge-new-york-42nd-street-MNHTNHNGE0520-43a173535778405c989daf86add8e1a2.jpg" alt="Sunset Over Manhattan">
+    <img src="https://cdn.pixabay.com/photo/2019/06/25/21/44/new-york-4299149_1280.jpg" alt="NYC Skyline at Dusk">
+    <img src="https://cdn.viewing.nyc/assets/media/eab12d293bd7e4bd6ec2320c8c694ef2/elements/5b18943f889c5b6cabac10c32e9398ea/8dd73cce-d1c1-43ea-aab8-538788d03198.webp" alt="Central Park Reservoir">
+    <img src="https://hudsonriverpark.org/app/uploads/2022/04/IMG_20181009_100818_585-1-scaled.jpg" alt="Hudson River Sunset Bar">
+    <img src="https://windagainstcurrent.com/wp-content/uploads/2012/09/imgp7584-cropped-small.jpg" alt="East River Sunset">
+    <img src="https://www.nyhabitat.com/blog/wp-content/uploads/2018/08/6-ways-NYC-waterfront-East-River-sunset.jpg" alt="Statue of Liberty at Sunset">
+    <img src="https://i.pinimg.com/736x/33/e1/ed/33e1ed231a0e5189ab1265e5f40b096a.jpg" alt="Rockefeller Center View at Sunset">
+    <img src="https://media.istockphoto.com/id/181059867/photo/brooklyn-bridge-in-manhattan.jpg?s=612x612&w=0&k=20&c=eInP7EnVZ87azN-hpOENM_WpyK-YUDI9MlaHHqbwn7E=" alt="Brooklyn Bridge Sun Glow">
+    <img src="https://live.staticflickr.com/266/19475674592_561cc02792_h.jpg" alt="NYC Skyline Sunset Panorama">
+    <img src="https://live.staticflickr.com/50/144737435_dd8366517b_b.jpg" alt="Brooklyn Bridge View at Dusk">
+    <img src="https://live.staticflickr.com/5541/10155895554_92c967d8df_b.jpg" alt="Hudson River Reflections">
+    <img src="https://live.staticflickr.com/8709/17174381894_4a018637bb_b.jpg" alt="One World Trade Center Sunset">
+    <img src="https://media.istockphoto.com/id/1057929782/photo/sunlight-rays-behind-crowds-of-people-in-new-york-city.jpg?s=612x612&w=0&k=20&c=FSJxkWUdr3q6z2L3DRZ0gM30BiUIy0EhcMpw8qpG1tc=" alt="Sunset Behind Manhattan">
+    <img src="https://i.icanvas.com/JNB803?d=2&sh=ph&p=1&bg=g" alt="Central Park Sunset Panorama">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".image-container img");
+
+      images.forEach((img, index) => {
+        const randomOpacity = (Math.random() * 0.5 + 0.5).toFixed(2);
+        img.style.opacity = randomOpacity;
+
+        const randomSize = Math.floor(Math.random() * 40) + 30;
+        if (Math.random() < 0.5) {
+          img.style.width = `${randomSize}vw`;
+          img.style.height = 'auto';
+        } else {
+          img.style.height = `${randomSize}vh`;
+          img.style.width = 'auto';
+        }
+
+        const posX = Math.floor(Math.random() * 80);
+        const posY = Math.floor(Math.random() * 80);
+        img.style.left = `${posX}%`;
+        img.style.top = `${posY}%`;
+
+        const zIndex = Math.floor(Math.random() * 10) + 1;
+        img.style.zIndex = zIndex;
+
+        const delay = index * 1000;
+        setTimeout(() => {
+          img.classList.add("fade-in");
+        }, delay);
+      });
+    });
+  </script>
+</body>
+</html>

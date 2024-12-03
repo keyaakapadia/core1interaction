@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WHITE</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+      overflow: hidden;
+    }
+
+    .image-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .image-container img {
+      position: absolute;
+      opacity: 0; /* Initial opacity */
+      transition: opacity 2s ease; /* Fade-in effect */
+      object-fit: contain; /* Prevents distortion */
+    }
+
+    /* Add initial fade-in */
+    .image-container img.fade-in {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://i0.wp.com/discovernyc.tours/wp-content/uploads/2021/10/shutterstock_221032825_657184472576.jpg?resize=800%2C534&ssl=1" alt="Image 1">
+    <img src="https://media.istockphoto.com/id/607743344/photo/snow-in-new-york-city-fantastic-image.jpg?s=612x612&w=0&k=20&c=szAy0tvCU9E3rwWp18zV4oBU-h_6V_g-9VQKFwR7G7Y=" alt="Image 2">
+    <img src="https://media.nbcnewyork.com/2023/01/nyc-snow-central-park.png?resize=1200%2C675&quality=85&strip=all" alt="Image 3">
+    <img src="https://static.euronews.com/articles/stories/05/34/36/66/1440x810_cmsv2_1f7654f3-9148-526b-b4f1-77eb5f3e0e6c-5343666.jpg" alt="Image 4">
+    <img src="https://static.euronews.com/articles/stories/05/34/36/66/1440x810_cmsv2_1f7654f3-9148-526b-b4f1-77eb5f3e0e6c-5343666.jpg" alt="Image 5">
+    <img src="https://adventuringdreamers.com/wp-content/uploads/2023/01/Does-it-snow-in-New-York-1024x682.png" alt="Image 6">
+    <img src="https://images.foxtv.com/static.fox5ny.com/www.fox5ny.com/content/uploads/2024/02/932/524/3aa3e785-Untitled-1.jpg?ve=1&tl=1" alt="Image 7">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdzFfyYq4w1ZV77w3n5wqthwA3l1c4Aj-1w&s" alt="Image 8">
+    <img src="https://static01.nyt.com/images/2023/02/28/multimedia/28snowBlog-01-jtbk/28snowBlog-01-jtbk-verticalTwoByThree735.jpg" alt="Image 9">
+    <img src="https://i0.wp.com/lyssyinthecity.com/wp-content/uploads/2022/01/CD288224-3A8C-4D3C-B619-DD96FC049757.jpg?resize=770%2C514&ssl=1" alt="Image 10">
+    <img src="https://api-prod.gothamist.com/images/343322/fill-364x485%7Cformat-webp%7Cwebpquality-70/" alt="Image 11">
+    <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/children-playing-in-snow-in-central-park-bettmann.jpg" alt="Image 12">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-4ELhxGPy9Zg6WJfOvETc0R84yskfsoxKjg&s" alt="Image 13">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".image-container img");
+
+      images.forEach((img, index) => {
+        // Set a random opacity between 0.5 and 1.0
+        const randomOpacity = (Math.random() * 0.5 + 0.5).toFixed(2);
+        img.style.opacity = randomOpacity;
+
+        // Set random sizes without distortion (either random width or height)
+        const randomSize = Math.floor(Math.random() * 40) + 30; // 30% to 70% of viewport size
+        if (Math.random() < 0.5) {
+          img.style.width = `${randomSize}vw`;
+          img.style.height = 'auto';
+        } else {
+          img.style.height = `${randomSize}vh`;
+          img.style.width = 'auto';
+        }
+
+        // Set random positions within the viewport
+        const posX = Math.floor(Math.random() * 80); // 0% to 80%
+        const posY = Math.floor(Math.random() * 80); // 0% to 80%
+        img.style.left = `${posX}%`;
+        img.style.top = `${posY}%`;
+
+        // Set a random z-index between 1 and 10 to control layering
+        const zIndex = Math.floor(Math.random() * 10) + 1;
+        img.style.zIndex = zIndex;
+
+        // Delay each image's appearance by a few seconds for staggered effect
+        const delay = index * 1000; // 1000ms (1 second) difference between each image
+        setTimeout(() => {
+          img.classList.add("fade-in"); // Add fade-in effect after delay
+        }, delay);
+      });
+    });
+  </script>
+</body>
+</html>

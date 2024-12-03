@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLUE NYC WATERS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+      overflow: hidden;
+    }
+
+    .image-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .image-container img {
+      position: absolute;
+      opacity: 0; /* Initial opacity */
+      transition: opacity 2s ease; /* Fade-in effect */
+      object-fit: contain; /* Prevents distortion */
+    }
+
+    /* Add initial fade-in */
+    .image-container img.fade-in {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://theseaport.nyc/wp-content/uploads/2020/04/Aerial-2_The-Rooftop-at-Pier-17_DJI_0130-1200x800.jpg" alt="Pier 17 NYC">
+    <img src="https://assets.cityexperiences.com/wp-content/uploads/2023/01/baf91f0a-f9bc-4e49-b60f-a2f9921a439f-sm.jpg" alt="Hudson River Sunset">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWYMspl7qxKDKQGwjCfSGphlfxwW39MGh3oA&s" alt="Brooklyn Bridge Over East River">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Brooklyn_Bridge_panorama.jpg/1000px-Brooklyn_Bridge_panorama.jpg" alt="Brooklyn Bridge Over East River">
+    <img src="https://s3.amazonaws.com/assets.centralparknyc.org/media/images/_1650x767_crop_center-center_none/ff-wide@3x-Reservoir_2020-08-17-164736.jpg" alt="Central Park Lake">
+    <img src="https://c.stocksy.com/a/7AV300/z9/834775.jpg" alt="Hudson River NYC Skyline">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjkbl2tqT0kXbEP6RjLgKzE6sO7PGpGT7G8w&s" alt="Hudson River NYC Skyline">
+    <img src="https://d18mr9iuob0gar.cloudfront.net/media/boats/2015/05/rental-Sail-boat-DeJong__Lebet-158feet-New_York-NY_2Qzi8qt.jpeg" alt="Boats on East River NYC">
+    <img src="https://frominwoodout.com/wp-content/uploads/2022/05/Little-Island-view-from-Pier-57-1024x768.jpg" alt="Pier 26 on Hudson River">
+    <img src="https://live.staticflickr.com/65535/48941663226_2f7723de8d_b.jpg" alt="Hudson River Blue Hour">
+    <img src="https://live.staticflickr.com/7367/12772521864_b035cc2361_b.jpg" alt="Hudson River Blue Hour">
+    <img src="https://live.staticflickr.com/65535/49626848717_191cb89535_b.jpg" alt="Hudson River Blue Hour">
+    <img src="https://www.centralpark.com/downloads/9444/download/boating2-1%20copy.jpg?cb=11af1ba7ba8f9d0bbe605d5598946de0" alt="Central Park Rowboats">
+    <img src="https://theinsatiabletraveler.com/wp-content/uploads/2015/07/Where-to-Photograph-the-Most-Stunning-Views-of-the-New-York-Skyline-at-Night-Brooklyn-Bridge-Park-5323.jpg" alt="Pier View at Dusk">
+    <img src="https://live.staticflickr.com/5819/20501180196_dcb76a5fb7_b.jpg" alt="East River Skyline">
+    <img src="https://live.staticflickr.com/7407/10668433636_39dc79c15d_b.jpg" alt="Blue Hour NYC Harbor">
+    <img src="https://i.redd.it/afi35kzgryf61.jpg" alt="Central Park Lake Winter">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".image-container img");
+
+      images.forEach((img, index) => {
+        // Set a random opacity between 0.5 and 1.0
+        const randomOpacity = (Math.random() * 0.5 + 0.5).toFixed(2);
+        img.style.opacity = randomOpacity;
+
+        // Set random sizes without distortion (either random width or height)
+        const randomSize = Math.floor(Math.random() * 40) + 30; // 30% to 70% of viewport size
+        if (Math.random() < 0.5) {
+          img.style.width = `${randomSize}vw`;
+          img.style.height = 'auto';
+        } else {
+          img.style.height = `${randomSize}vh`;
+          img.style.width = 'auto';
+        }
+
+        // Set random positions within the viewport
+        const posX = Math.floor(Math.random() * 80); // 0% to 80%
+        const posY = Math.floor(Math.random() * 80); // 0% to 80%
+        img.style.left = `${posX}%`;
+        img.style.top = `${posY}%`;
+
+        // Set a random z-index between 1 and 10 to control layering
+        const zIndex = Math.floor(Math.random() * 10) + 1;
+        img.style.zIndex = zIndex;
+
+        // Delay each image's appearance by a few seconds for staggered effect
+        const delay = index * 1000; // 1000ms (1 second) difference between each image
+        setTimeout(() => {
+          img.classList.add("fade-in"); // Add fade-in effect after delay
+        }, delay);
+      });
+    });
+  </script>
+</body>
+</html>
